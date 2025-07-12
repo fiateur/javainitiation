@@ -85,7 +85,17 @@ public class NewClass {
         System.out.println("Veuiller saisir le numero de planete!") ;
         int numplanete = scanner.nextInt() ;
         
-        switch (numplanete) {
+        Planete planete = new Planete(numplanete,nom) ;
+        
+        //Le CAST est la conversion  d'un objet en un autre type objet 
+        //l'objet peut etre une class, une methode ou une interface
+        int a = Integer.valueOf(planete.getId() + "") ;
+        int b = Integer.parseInt(planete.getId() + "") ;
+        
+        //objet null, objet non utilise
+        Planete p ; // equivqlent a ecrire Planete p = null mais pas util
+        
+        switch ((int)planete.getId()) {
             case 1 : 
                 System.out.println("Bonjour Mr : " + nom) ;
                 System.out.println("Vous etes a la planete 1 ") ;
@@ -163,6 +173,30 @@ public class NewClass {
             for (Integer i : listedenombre){
                 System.out.println("Itération n° " + i);
             }
+            //pour eviter une boucle infinie il faut soit decrementer lg 
+                // lg--; // décrémenter pour éviter boucle infinie
+            //Soit vider la liste
+               listedenombre.clear(); // la liste devient vide, donc la boucle s'arrête
+        
+         // objet immuable 
+         
+        String val1 = "Valeur1" ;
+        //ici va11 ne garde pas le meme hash (representation en memoire)
+        val1 = "Valeur1" + "Valeur2" ;
+        //pour qu'il garde sa valeur en memoire
+        //val1.concat(" Valeur2")
+                
+        //2659550
+        //2659550
+        
+        Planete pl1 = new Planete(5, "Val1") ;
+        Planete pl2 = new Planete(5, "Val1") ;
+        System.out.println(pl1.hashCode());
+        //System.out.println(pl2.hashCode());
+        pl1.setNom(" Val2");
+        System.out.println(pl1.hashCode());
+        
+        System.out.println(pl1 = pl2);
         }
     }
        
